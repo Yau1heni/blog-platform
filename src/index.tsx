@@ -1,7 +1,7 @@
-import {render} from 'react-dom'
-import {Counter} from './component/counter';
+import {render} from 'react-dom';
+import {App} from './app';
 
 render(
-  <div><Counter/></div>,
+  <App/>,
   document.getElementById('root')
 )
