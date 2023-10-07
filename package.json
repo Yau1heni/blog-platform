@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --env port=3000",
+    "start:dev:server": "node ./json-server/index.js",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "lint:ts": " eslint \"**/*.{ts,tsx}\"",
@@ -43,6 +44,7 @@
     "mini-css-extract-plugin": "^2.5.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "json-server": "^0.17.0",
     "sass": "^1.67.0",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
