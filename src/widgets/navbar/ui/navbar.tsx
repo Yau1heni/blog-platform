@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/helpers/class-names';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'shared/ui/modal/modal';
 import { Button, ButtonTheme } from 'shared/ui/button/button';
+import { LoginModal } from 'features/auth';
 import s from './navbar.module.scss';
 
 type NavbarPropsType = {
@@ -26,10 +26,10 @@ export const Navbar: FC<NavbarPropsType> = ({ className }) => {
       >
         {t('Войти')}
       </Button>
-      <Modal isOpen={isAuthModal} onClose={onToggleModal}>
+      <LoginModal isOpen={isAuthModal} onClose={onToggleModal}>
         {/* eslint-disable-next-line */}
         {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam.')}
-      </Modal>
+      </LoginModal>
     </div>
   );
 };
