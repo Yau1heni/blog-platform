@@ -4,5 +4,5 @@ export type UserType = {
 }
 
 export type UserSchema = {
-  authDada: boolean
+  authDada: UserType
 }
