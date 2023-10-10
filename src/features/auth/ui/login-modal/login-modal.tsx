@@ -1,7 +1,8 @@
 import { Modal } from 'shared/ui/modal/modal';
-import { FC } from 'react';
-import { classNames } from 'shared/lib/helpers/class-names';
-import { LoginForm } from '../login-form/login-form';
+import { FC, Suspense } from 'react';
+import { classNames } from 'shared/lib/class-names/class-names';
+import { Loader } from 'shared/ui/loader/loader';
+import { LoginFormAsync } from '../login-form/login-form.async';
 
 type LoginModalType = {
   className?: string
@@ -9,13 +10,19 @@ type LoginModalType = {
   onClose: () => void
 }
 
-export const LoginModal: FC<LoginModalType> = ({ className, isOpen, onClose }) => (
+export const LoginModal: FC<LoginModalType> = ({
+  className,
+  isOpen,
+  onClose,
+}) => (
   <Modal
     className={classNames('', {}, [className])}
     isOpen={isOpen}
     onClose={onClose}
     lazy
   >
-    <LoginForm />
+    <Suspense fallback={<Loader />}>
+      <LoginFormAsync />
+    </Suspense>
   </Modal>
 );

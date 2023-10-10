@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/helpers/class-names';
+import { classNames } from 'shared/lib/class-names/class-names';
 import { Theme, useTheme } from 'app/providers/theme-provider';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';

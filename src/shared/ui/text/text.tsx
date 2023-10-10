@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/helpers/class-names';
+import { classNames } from 'shared/lib/class-names/class-names';
 import s from './text.module.scss';
 
 export enum TextTheme {

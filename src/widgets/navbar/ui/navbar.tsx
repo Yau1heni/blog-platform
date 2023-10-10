@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/helpers/class-names';
+import { classNames } from 'shared/lib/class-names/class-names';
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/button/button';
@@ -27,6 +27,7 @@ export const Navbar: FC<NavbarPropsType> = ({ className }) => {
 
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
+    setIsAuthModal(false);
   }, [dispatch]);
 
   return (

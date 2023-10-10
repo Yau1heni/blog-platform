@@ -2,9 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { UserSchema, UserType } from '../types/user';
 
-const initialState: UserSchema = {
-  authDada: { id: '', username: '' },
-};
+const initialState: UserSchema = {};
 
 export const userSlice = createSlice({
   name: 'user',
