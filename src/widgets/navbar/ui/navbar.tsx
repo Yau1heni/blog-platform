@@ -27,7 +27,6 @@ export const Navbar: FC<NavbarPropsType> = ({ className }) => {
 
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
-    setIsAuthModal(false);
   }, [dispatch]);
 
   return (
@@ -49,7 +48,12 @@ export const Navbar: FC<NavbarPropsType> = ({ className }) => {
           >
             {t('Войти')}
           </Button>
-          <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+          {isAuthModal && (
+            <LoginModal
+              isOpen={isAuthModal}
+              onClose={onCloseModal}
+            />
+          )}
         </>
       )}
     </div>
