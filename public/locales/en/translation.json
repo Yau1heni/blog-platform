@@ -15,5 +15,6 @@
   "Пароль": "Password",
   "Неправильное имя пользователя или пароль": "Uncorrected username or password",
   "Выйти": "Exit",
-  "ошибка": "error"
+  "ошибка": "error",
+  "Профиль": "Profile"
 }
