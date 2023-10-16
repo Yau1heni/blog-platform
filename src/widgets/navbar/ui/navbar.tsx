@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/class-names/class-names';
-import { FC, useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/button/button';
 import { LoginModal } from 'features/auth';
@@ -12,7 +12,7 @@ type NavbarPropsType = {
   className?: string
 }
 
-export const Navbar: FC<NavbarPropsType> = ({ className }) => {
+export const Navbar = memo(({ className }: NavbarPropsType) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [isAuthModal, setIsAuthModal] = useState(false);
@@ -59,4 +59,4 @@ export const Navbar: FC<NavbarPropsType> = ({ className }) => {
       )}
     </div>
   );
-};
+});
