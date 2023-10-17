@@ -10,6 +10,7 @@ export type BuildPathsType = {
 export type BuildEnvType = {
   mode: BuildModeType
   port: number
+  apiUrl: string
 }
 
 export type BuildOptionsType = {
@@ -17,4 +18,5 @@ export type BuildOptionsType = {
   paths: BuildPathsType
   isDev: boolean
   port: number
+  apiUrl: string
 }

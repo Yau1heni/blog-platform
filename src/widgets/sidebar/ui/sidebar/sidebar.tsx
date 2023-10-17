@@ -15,8 +15,6 @@ export const Sidebar = memo((props: SidebarPropsType) => {
   const { className, ...otherProps } = props;
   const [collapsed, setCollapsed] = useState(false);
 
-  const [t, seT] = useState(0);
-
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
@@ -42,12 +40,6 @@ export const Sidebar = memo((props: SidebarPropsType) => {
         square
       >
         {collapsed ? '>' : '<'}
-      </Button>
-
-      <Button
-        onClick={() => seT(t + 1)}
-      >
-        {t}
       </Button>
 
       <div className={s.items}>

@@ -3,7 +3,7 @@ import {
   Theme,
   ThemeContext,
 } from 'app/providers/theme-provider/lib/theme-context';
-import { LOCAL_STORAGE_THEME_KEY } from 'shared/const/localStorage';
+import { LOCAL_STORAGE_THEME_KEY } from 'shared/const/local-storage';
 
 type UseThemeType = {
   theme: Theme
