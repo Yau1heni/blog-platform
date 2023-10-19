@@ -16,7 +16,7 @@ type TextPropsType = {
 
 export const Text = memo((props:TextPropsType) => {
   const {
-    className, title, text, theme,
+    className, title, text, theme = TextTheme.PRIMARY,
   } = props;
 
   return (
