@@ -1,19 +1,25 @@
 import {
-  ChangeEvent, FC, InputHTMLAttributes, memo, SyntheticEvent, useEffect, useRef, useState,
+  ChangeEvent,
+  InputHTMLAttributes,
+  memo, SyntheticEvent,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 import { classNames } from 'shared/lib/class-names/class-names';
 import s from './input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>
 
 interface InputProps extends HTMLInputProps {
   className?: string
   value?: string
   onChange?: (value: string) => void
   autofocus?: boolean
+  readonly?: boolean
 }
 
-const Input: FC<InputProps> = (props) => {
+export const Input = memo((props: InputProps) => {
   const {
     className,
     value,
@@ -21,6 +27,7 @@ const Input: FC<InputProps> = (props) => {
     type = 'text',
     autofocus,
     placeholder,
+    readonly,
     ...otherProps
   } = props;
 
@@ -28,6 +35,8 @@ const Input: FC<InputProps> = (props) => {
 
   const [isFocused, setIsFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
+
+  const isCaretVisible = isFocused && !readonly;
 
   useEffect(() => {
     if (autofocus) {
@@ -70,9 +79,10 @@ const Input: FC<InputProps> = (props) => {
           onBlur={onBlur}
           onSelect={onSelect}
           className={s.input}
+          readOnly={readonly}
           {...otherProps}
         />
-        {isFocused && (
+        {isCaretVisible && (
           <span
             className={s.caret}
             style={{ left: `${caretPosition * 9}px` }}
@@ -81,6 +91,4 @@ const Input: FC<InputProps> = (props) => {
       </div>
     </div>
   );
-};
-
-export default memo(Input);
+});
