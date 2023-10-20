@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/button/button';
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/class-names/class-names';
-import Input from 'shared/ui/input/input';
+import { Input } from 'shared/ui/input/input';
 import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/text/text';
 import {
