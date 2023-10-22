@@ -9,6 +9,7 @@ export {
 } from './model/slice/profile-slice';
 
 export { fetchProfile } from './model/services/fetch-profile';
+export { updateProfile } from './model/services/update-profile';
 
 export { ProfileCard } from './ui/profile-card/profile-card';
 

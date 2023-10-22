@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import i18n from 'shared/config/i18n/i18n';
+import { updateProfile } from '../services/update-profile';
 import { fetchProfile } from '../services/fetch-profile';
 import { ProfileSchema, ProfileType } from '../types/profile';
 
@@ -44,6 +45,23 @@ export const profileSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(fetchProfile.rejected, (state) => {
+        state.isLoading = false;
+        state.error = (i18n.t('Неправильное имя пользователя или пароль'));
+      })
+      .addCase(updateProfile.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(updateProfile.fulfilled, (
+        state,
+        action: PayloadAction<ProfileType>,
+      ) => {
+        state.data = action.payload;
+        state.form = action.payload;
+        state.readonly = true;
+        state.isLoading = false;
+      })
+      .addCase(updateProfile.rejected, (state) => {
         state.isLoading = false;
         state.error = (i18n.t('Неправильное имя пользователя или пароль'));
       });

@@ -16,7 +16,8 @@ import {
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { useSelector } from 'react-redux';
-import { Country, Currency } from 'shared/const/common';
+import { Currency } from 'entities/currency';
+import { Country } from 'entities/country';
 import ProfileHeaderPage from '../ui/profile-header-page/profile-header-page';
 
 type ProfilePagePropsType = {

@@ -3,7 +3,9 @@ import { classNames, ModsType } from 'shared/lib/class-names/class-names';
 import { Input } from 'shared/ui/input/input';
 import { Text, TextAlign, TextTheme } from 'shared/ui/text/text';
 import { Loader } from 'shared/ui/loader/loader';
-import { Country, Currency } from 'shared/const/common';
+import { Avatar } from 'shared/ui/avatar/avatar';
+import { Currency, CurrencySelect } from 'entities/currency';
+import { Country, CountrySelect } from 'entities/country';
 import s from './profile-card.module.scss';
 import { ProfileType } from '../../model/types/profile';
 
@@ -70,6 +72,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
   return (
     <div className={classNames(s.profileCard, mods, [className])}>
       <div className={s.data}>
+        {data?.avatar && (
+          <div className={s.avatarWrapper}>
+            <Avatar src={data.avatar} alt="ava" />
+          </div>
+        )}
         <Input
           value={data?.first}
           placeholder={t('Ваше имя')}
@@ -105,7 +112,26 @@ export const ProfileCard = (props: ProfileCardProps) => {
           onChange={onChangeUsername}
           readonly={readonly}
         />
+        <Input
+          value={data?.avatar}
+          placeholder={t('Ваш аватар')}
+          className={s.input}
+          onChange={onChangeAvatar}
+          readonly={readonly}
+        />
+        <CurrencySelect
+          className={s.input}
+          onChange={onChangeCurrency}
+          value={data?.currency}
+          readonly={readonly}
+        />
       </div>
+      <CountrySelect
+        className={s.input}
+        onChange={onChangeCountry}
+        value={data?.country}
+        readonly={readonly}
+      />
     </div>
   );
 };

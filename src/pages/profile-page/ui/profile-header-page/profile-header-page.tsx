@@ -3,7 +3,9 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileActions, profileReducer, selectProfileReadonly } from 'entities/profile';
+import {
+  profileActions, profileReducer, selectProfileReadonly, updateProfile,
+} from 'entities/profile';
 import { Text } from 'shared/ui/text/text';
 import { Button, ButtonTheme } from 'shared/ui/button/button';
 import { useTranslation } from 'react-i18next';
@@ -33,6 +35,10 @@ const ProfileHeaderPage = ({ className }: ProfileHeaderPagePropsType) => {
     dispatch(profileActions.cancelEdit());
   }, [dispatch]);
 
+  const onSave = useCallback(() => {
+    dispatch(updateProfile());
+  }, [dispatch]);
+
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classNames(s.profilePageHeader, {}, [className])}>
@@ -47,13 +53,24 @@ const ProfileHeaderPage = ({ className }: ProfileHeaderPagePropsType) => {
             {t('Редактировать')}
           </Button>
         ) : (
-          <Button
-            className={s.editBtn}
-            theme={ButtonTheme.OUTLINE}
-            onClick={onCancelEdit}
-          >
-            {t('Отменить')}
-          </Button>
+          <>
+            <Button
+              className={s.editBtn}
+              theme={ButtonTheme.OUTLINE}
+              onClick={onSave}
+            >
+              {t('Сохранить')}
+            </Button>
+            <Button
+              className={s.saveBtn}
+              theme={ButtonTheme.OUTLINE_RED}
+              onClick={onCancelEdit}
+            >
+              {t('Отменить')}
+            </Button>
+
+          </>
+
         )}
       </div>
     </DynamicModuleLoader>

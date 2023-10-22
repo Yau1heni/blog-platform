@@ -1,4 +1,5 @@
-import { Country, Currency } from 'shared/const/common';
+import { Currency } from 'entities/currency';
+import { Country } from 'entities/country';
 
 export type ProfileType = {
     first?: string;
