@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/button/button';
 import { LoginModal } from 'features/auth';
 import { useSelector } from 'react-redux';
-import { authDataSelector, userActions } from 'entities/user';
+import { selectAuthData, userActions } from 'entities/user';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import s from './navbar.module.scss';
 
@@ -16,7 +16,7 @@ export const Navbar = memo(({ className }: NavbarPropsType) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [isAuthModal, setIsAuthModal] = useState(false);
-  const authData = useSelector(authDataSelector);
+  const authData = useSelector(selectAuthData);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
