@@ -11,5 +11,10 @@
   "Сохранить": "Save",
   "Ваш аватар": "Your avatar",
   "Укажите валюту": "Specify currency",
-  "Укажите страну": "Specify country"
+  "Укажите страну": "Specify country",
+  "Серверная ошибка": "Server error",
+  "Данные не указаны": "Data not stated",
+  "Некоректный возраст": "Incorrect age",
+  "Некоректный регион": "Incorrect region",
+  "Имя и фамилия обязательны": "First and last name required"
 }

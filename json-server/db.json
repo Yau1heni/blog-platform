@@ -28,7 +28,7 @@
   "profile": {
     "first": "Иван",
     "lastname": "Иванов",
-    "age": "32",
+    "age": 33,
     "currency": "USD",
     "country": "Belarus",
     "city": "Минск",

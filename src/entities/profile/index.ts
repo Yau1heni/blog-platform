@@ -17,4 +17,5 @@ export { selectProfileData } from './model/selectors/select-profile-data';
 export { selectProfileError } from './model/selectors/select-profile-error';
 export { selectProfileIsLoading } from './model/selectors/select-profile-is-loading';
 export { selectProfileReadonly } from './model/selectors/select-profile-readonly';
-export { selectProfileForm } from './model/selectors/seklect-profile-form';
+export { selectProfileForm } from './model/selectors/select-profile-form';
+export { selectProfileValidateErrors } from './model/selectors/select-profile-validate-errors';

@@ -22,6 +22,7 @@ export const profileSlice = createSlice({
     cancelEdit: (state) => {
       state.readonly = true;
       state.form = state.data;
+      state.validateErrors = undefined;
     },
     updateProfile: (state, action: PayloadAction<{data: ProfileType}>) => {
       state.form = {
@@ -49,7 +50,7 @@ export const profileSlice = createSlice({
         state.error = (i18n.t('Неправильное имя пользователя или пароль'));
       })
       .addCase(updateProfile.pending, (state) => {
-        state.error = undefined;
+        state.validateErrors = undefined;
         state.isLoading = true;
       })
       .addCase(updateProfile.fulfilled, (
@@ -60,10 +61,11 @@ export const profileSlice = createSlice({
         state.form = action.payload;
         state.readonly = true;
         state.isLoading = false;
+        state.validateErrors = undefined;
       })
-      .addCase(updateProfile.rejected, (state) => {
+      .addCase(updateProfile.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = (i18n.t('Неправильное имя пользователя или пароль'));
+        state.validateErrors = action.payload;
       });
   },
 });
