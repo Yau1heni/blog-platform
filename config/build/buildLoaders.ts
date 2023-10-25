@@ -18,7 +18,8 @@ export function buildLoaders({ isDev }: BuildOptionsType): webpack.RuleSetRule[]
               keyAsDefaultValue: true,
             },
           ],
-        ],
+          isDev && require.resolve('react-refresh/babel'),
+        ].filter(Boolean),
       },
     },
   };
