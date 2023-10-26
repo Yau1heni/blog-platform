@@ -5,4 +5,5 @@ export type UserType = {
 
 export type UserSchema = {
   authDada?: UserType
+  inited: boolean
 }
