@@ -8,24 +8,24 @@ export type ArticleBlockBase = {
   id: string;
 }
 
-export type ArticleCodeBlock = {
+export type ArticleCodeBlockType = {
   type: ArticleBlockType.CODE;
   code: string;
 } & ArticleBlockBase
 
-export type ArticleImageBlock = {
+export type ArticleImageBlockType = {
   type: ArticleBlockType.IMAGE;
   src: string;
   title: string;
 } & ArticleBlockBase
 
-export type ArticleTextBlock = {
+export type ArticleTextBlockType = {
   type: ArticleBlockType.TEXT;
   paragraphs: string[];
   title?: string;
 } & ArticleBlockBase
 
-export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
+export type ArticleBlock = ArticleCodeBlockType | ArticleImageBlockType | ArticleTextBlockType;
 
 export enum ArticleType {
   IT = 'IT',
