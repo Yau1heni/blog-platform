@@ -1,2 +1,11 @@
-.addCommentCorm {
+.addCommentForm {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid var(--primary-color);
+  align-items: center;
+}
+
+.input {
+  flex-grow: 1;
 }

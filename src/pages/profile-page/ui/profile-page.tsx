@@ -22,10 +22,11 @@ import { Country } from 'entities/country';
 import { Text, TextTheme } from 'shared/ui/text/text';
 import { useTranslation } from 'react-i18next';
 import { ValidateProfileErrors } from 'entities/profile/model/types/profile';
+import { useParams } from 'react-router-dom';
 import ProfileHeaderPage from '../ui/profile-header-page/profile-header-page';
 
 type ProfilePagePropsType = {
-    className?: string;
+  className?: string;
 }
 
 const initialReducers: ReducersList = {
@@ -35,6 +36,9 @@ const initialReducers: ReducersList = {
 const ProfilePage = ({ className }: ProfilePagePropsType) => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
+  const { id } = useParams<{
+    id: string
+  }>();
 
   const formData = useSelector(selectProfileForm);
   const error = useSelector(selectProfileError);
@@ -52,7 +56,10 @@ const ProfilePage = ({ className }: ProfilePagePropsType) => {
   };
 
   useEffect(() => {
-    dispatch(fetchProfile());
+    if (id) {
+      dispatch(fetchProfile(id));
+    }
+    /* eslint-disable react-hooks/exhaustive-deps */
   }, [dispatch]);
 
   const onChangeFirstname = useCallback((value?: string) => {

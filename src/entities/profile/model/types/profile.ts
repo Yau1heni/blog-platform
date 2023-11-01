@@ -10,21 +10,22 @@ export enum ValidateProfileErrors {
 }
 
 export type ProfileType = {
-    first?: string;
-    lastname?: string;
-    age?: number,
-    currency?: Currency,
-    country?: Country;
-    city?: string,
-    username?: string;
-    avatar?: string;
+  id?: string
+  first?: string;
+  lastname?: string;
+  age?: number,
+  currency?: Currency,
+  country?: Country;
+  city?: string,
+  username?: string;
+  avatar?: string;
 }
 
 export type ProfileSchema = {
-    data?: ProfileType;
-    form?: ProfileType
-    isLoading: boolean;
-    error?: string;
-    readonly: boolean;
-    validateErrors?: ValidateProfileErrors[]
+  data?: ProfileType;
+  form?: ProfileType
+  isLoading: boolean;
+  error?: string;
+  readonly: boolean;
+  validateErrors?: ValidateProfileErrors[]
 }

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/class-names/class-names';
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { ArticleDetails } from 'entities/article';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/text/text';
@@ -10,8 +10,12 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { CommentList } from 'entities/сomment';
 import { useSelector } from 'react-redux';
-import { fetchComments } from 'pages/article-details-page/model/services/fetchComments';
+import { fetchComments } from 'pages/article-details-page/model/services/fetch-comments';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
+import { AddCommentForm } from 'features/addCommentForm';
+import {
+  addCommentForArticle,
+} from 'pages/article-details-page/model/services/add-comment-for-article';
 import { selectArticleCommentsIsLoading } from '../../model/selectors/comments';
 import {
   articleDetailsCommentsReducer,
@@ -37,6 +41,10 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPagePropsType) => {
   const comments = useSelector(selectArticleComments.selectAll);
   const isLoading = useSelector(selectArticleCommentsIsLoading);
 
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
+
   useEffect(() => {
     dispatch(fetchComments(id));
     /* eslint-disable react-hooks/exhaustive-deps */
@@ -53,6 +61,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPagePropsType) => {
       <div className={classNames(s.articleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={s.commentTitle} title={t('Комментарии')} />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={isLoading} />
       </div>
     </DynamicModuleLoader>

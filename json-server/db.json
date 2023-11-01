@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "hello",
+      "id": "VPMHm8M"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "hello2",
+      "id": "5Mvuobb"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "sdfsdf",
+      "id": "Qm3v5dW"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "sdfsd",
+      "id": "lkWh4_P"
     }
   ],
   "users": [
@@ -118,14 +144,28 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": {
-    "first": "Иван",
-    "lastname": "Иванов",
-    "age": 33,
-    "currency": "USD",
-    "country": "Belarus",
-    "city": "Минск",
-    "username": "Ванек",
-    "avatar": "https://cdn.pixabay.com/photo/2018/08/28/13/29/avatar-3637561_1280.png"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Иван",
+      "lastname": "Иванов",
+      "age": 33,
+      "currency": "USD",
+      "country": "Belarus",
+      "city": "Минск",
+      "username": "Вандер",
+      "avatar": "https://cdn.pixabay.com/photo/2018/08/28/13/29/avatar-3637561_1280.png"
+    },
+    {
+      "id": "2",
+      "first": "Олег",
+      "lastname": "Иванов",
+      "age": 30,
+      "currency": "USD",
+      "country": "Belarus",
+      "city": "Могилев",
+      "username": "Олегыч",
+      "avatar": "https://cdn.pixabay.com/photo/2018/08/28/13/29/avatar-3637561_1280.png"
+    }
+  ]
 }
