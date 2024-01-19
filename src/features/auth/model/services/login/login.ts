@@ -19,7 +19,7 @@ export const login = createAsyncThunk<UserType, LoginPayload, ThunkConfigType<st
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(res.data));
 
       dispatch(userActions.setAuthData(res.data));
-      extra.navigate?.(RoutePath.profile);
+      extra.navigate?.(RoutePath.profile + res.data.id);
       return res.data;
     } catch (e) {
       return rejectWithValue(i18n.t('ошибка'));

@@ -3,9 +3,10 @@ import { classNames } from 'shared/lib/class-names/class-names';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/button/button';
 import { ThemeSwitcher } from 'widgets/theme-switcher';
 import { LangSwitcher } from 'widgets/lang-switcher/lang-switcher';
-import { SidebarItem } from 'widgets/sidebar/ui/sidebar-item/sidebar-item';
+import { useSelector } from 'react-redux';
+import { SidebarItem } from '../sidebar-item/sidebar-item';
+import { selectSidebarItems } from '../../model/selectors/select-sidebar-items';
 import s from './sidebar.module.scss';
-import { SidebarItemsList } from '../../model/items';
 
 type SidebarPropsType = {
   className?: string
@@ -19,13 +20,15 @@ export const Sidebar = memo((props: SidebarPropsType) => {
     setCollapsed((prev) => !prev);
   };
 
-  const itemsList = useMemo(() => SidebarItemsList.map((item) => (
+  const sidebarItemsList = useSelector(selectSidebarItems);
+
+  const itemsList = useMemo(() => sidebarItemsList.map((item) => (
     <SidebarItem
       item={item}
       collapsed={collapsed}
       key={item.path}
     />
-  )), [collapsed]);
+  )), [collapsed, sidebarItemsList]);
 
   return (
     <div
