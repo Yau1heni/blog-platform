@@ -67,8 +67,7 @@ export const ArticleDetails = memo((props: ArticleDetailsPropsType) => {
         return (
           <ArticleTextBlock
             key={block.id}
-            title={block.title}
-            paragraphs={block.paragraphs}
+            block={block}
             className={s.block}
           />
         );
