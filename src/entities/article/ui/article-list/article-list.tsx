@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/class-names/class-names';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArticleListItem } from '../article-list-item/article-list-item';
 import s from './article-list.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
@@ -26,6 +27,7 @@ export const ArticleList = memo((props: ArticleListPropsType) => {
     view = ArticleView.SMALL,
     isLoading,
   } = props;
+  const { t } = useTranslation('article');
 
   if (isLoading) {
     return (
@@ -48,7 +50,7 @@ export const ArticleList = memo((props: ArticleListPropsType) => {
     <div className={classNames(s.articleList, {}, [className, s[view]])}>
       {articles.length > 0
         ? articles.map(renderArticle)
-        : null}
+        : <div>{t('Статьи не найдены')}</div>}
     </div>
   );
 });

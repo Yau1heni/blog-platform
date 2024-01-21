@@ -25,7 +25,7 @@ export type AddCommentFormPropsType = {
 }
 
 const reducers: ReducersList = {
-  AddCommentForm: addCommentFormReducer,
+  addCommentForm: addCommentFormReducer,
 };
 
 const AddCommentForm = memo((props: AddCommentFormPropsType) => {

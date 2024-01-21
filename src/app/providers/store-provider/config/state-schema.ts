@@ -10,6 +10,7 @@ import { NavigateOptions } from 'react-router/dist/lib/context';
 import { ArticleDetailsSchema } from 'entities/article';
 import { ArticleDetailsCommentsSchema } from 'pages/article-details-page';
 import { AddCommentFormSchema } from 'features/addCommentForm';
+import { ArticlesPageSchema } from 'pages/articles-page';
 
 export interface StateSchema {
   user: UserSchema
@@ -19,7 +20,8 @@ export interface StateSchema {
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentsSchema
-  AddCommentForm?: AddCommentFormSchema
+  addCommentForm?: AddCommentFormSchema
+  articlesPage?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
