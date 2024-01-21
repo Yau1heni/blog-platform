@@ -8,3 +8,6 @@ export const selectArticlesPageIsLoading = (
 export const selectArticlesPageView = (
   state: StateSchema,
 ) => state.articlesPage?.view || ArticleView.SMALL;
+export const selectArticlesPageNumber = (state: StateSchema) => state.articlesPage?.page || 1;
+export const selectArticlesPageLimit = (state: StateSchema) => state.articlesPage?.limit;
+export const selectArticlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore;

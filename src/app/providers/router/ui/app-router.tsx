@@ -1,7 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import {
-  memo, Suspense, useCallback,
-} from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { AppRoutesProps, routeConfig } from 'shared/config/route-config/route-config';
 import { PageLoader } from 'shared/ui/page-loader/page-loader';
 import { RequireAuth } from './required-auth';
@@ -12,9 +10,7 @@ export const AppRouter = memo(() => {
 
     const content = (
       <Suspense fallback={<PageLoader />}>
-        <div className="page-wrapper">
-          {element}
-        </div>
+        {element}
       </Suspense>
     );
 

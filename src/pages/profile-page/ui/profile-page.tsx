@@ -23,6 +23,7 @@ import { Text, TextTheme } from 'shared/ui/text/text';
 import { useTranslation } from 'react-i18next';
 import { ValidateProfileErrors } from 'entities/profile/model/types/profile';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/page/page';
 import ProfileHeaderPage from '../ui/profile-header-page/profile-header-page';
 
 type ProfilePagePropsType = {
@@ -96,7 +97,7 @@ const ProfilePage = ({ className }: ProfilePagePropsType) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <div className={classNames('', {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <ProfileHeaderPage />
         {validateErrors?.length && validateErrors.map((err) => (
           <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]} />
@@ -115,7 +116,7 @@ const ProfilePage = ({ className }: ProfilePagePropsType) => {
           onChangeCurrency={onChangeCurrency}
           onChangeCountry={onChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

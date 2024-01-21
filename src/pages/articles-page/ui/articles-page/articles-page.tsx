@@ -7,6 +7,8 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
 import { useSelector } from 'react-redux';
+import { Page } from 'shared/ui/page/page';
+import { fetchNextArticlesPage } from 'pages/articles-page/model/services/fetch-next-articles-page';
 import { fetchArticlesList } from '../../model/services/fetch-articles-list';
 import {
   selectArticlesPageIsLoading,
@@ -34,8 +36,12 @@ const ArticlesPage = memo((props: ArticlesPagePropsType) => {
   const view = useSelector(selectArticlesPageView);
 
   useEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlesPageActions.initState());
+    dispatch(fetchArticlesList({ page: 1 }));
+  }, [dispatch, view]);
+
+  const onLoadNextPage = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   const onChangeView = useCallback((view: ArticleView) => {
@@ -44,14 +50,14 @@ const ArticlesPage = memo((props: ArticlesPagePropsType) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames('', {}, [className])}>
+      <Page onScrollEnd={onLoadNextPage} className={classNames('', {}, [className])}>
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
         <ArticleList
           articles={articles}
           isLoading={isLoading}
           view={view}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 });
