@@ -14,7 +14,6 @@ import {
   addCommentFormReducer,
 } from '../model/slices/add-comment-form-slice';
 import {
-  selectCommentFormError,
   selectCommentFormText,
 } from '../model/selectors/add-comment-form-selectors';
 import s from './add-comment-form.module.scss';
@@ -34,7 +33,6 @@ const AddCommentForm = memo((props: AddCommentFormPropsType) => {
   const { t } = useTranslation();
 
   const text = useSelector(selectCommentFormText);
-  const error = useSelector(selectCommentFormError);
 
   const onCommentTextChange = useCallback((value: string) => {
     dispatch(addCommentFormActions.setText({ text: value }));

@@ -3,7 +3,6 @@ import { userActions, UserType } from 'entities/user';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/local-storage';
 import i18n from 'i18next';
 import { ThunkConfigType } from 'app/providers/store-provider';
-import { RoutePath } from 'shared/config/route-config/route-config';
 
 type LoginPayload = {
   username?: string
@@ -19,7 +18,7 @@ export const login = createAsyncThunk<UserType, LoginPayload, ThunkConfigType<st
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(res.data));
 
       dispatch(userActions.setAuthData(res.data));
-      extra.navigate?.(RoutePath.profile + res.data.id);
+
       return res.data;
     } catch (e) {
       return rejectWithValue(i18n.t('ошибка'));
