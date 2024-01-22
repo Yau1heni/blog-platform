@@ -23,7 +23,7 @@ import { Text, TextTheme } from 'shared/ui/text/text';
 import { useTranslation } from 'react-i18next';
 import { ValidateProfileErrors } from 'entities/profile/model/types/profile';
 import { useParams } from 'react-router-dom';
-import { Page } from 'shared/ui/page/page';
+import { Page } from 'widgets/page/ui/page';
 import ProfileHeaderPage from '../ui/profile-header-page/profile-header-page';
 
 type ProfilePagePropsType = {

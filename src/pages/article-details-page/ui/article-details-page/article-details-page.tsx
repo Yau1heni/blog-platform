@@ -11,10 +11,10 @@ import {
 import { CommentList } from 'entities/сomment';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/use-app-dispatch';
-import { AddCommentForm } from 'features/addCommentForm';
+import { AddCommentForm } from 'features/add-comment-form';
 import { Button, ButtonTheme } from 'shared/ui/button/button';
 import { RoutePath } from 'shared/config/route-config/route-config';
-import { Page } from 'shared/ui/page/page';
+import { Page } from 'widgets/page/ui/page';
 import { fetchComments } from '../../model/services/fetch-comments';
 import { addCommentForArticle } from '../../model/services/add-comment-for-article';
 import { selectArticleCommentsIsLoading } from '../../model/selectors/comments';

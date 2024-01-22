@@ -7,11 +7,13 @@ import { ProfileSchema } from 'entities/profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/article';
 import { ArticleDetailsCommentsSchema } from 'pages/article-details-page';
-import { AddCommentFormSchema } from 'features/addCommentForm';
+import { AddCommentFormSchema } from 'features/add-comment-form';
 import { ArticlesPageSchema } from 'pages/articles-page';
+import { ScrollSavingSchema } from 'features/scroll-saving';
 
 export interface StateSchema {
   user: UserSchema
+  scrollSaving: ScrollSavingSchema
 
   // Async reducers
   login?: LoginSchema
@@ -24,11 +26,15 @@ export interface StateSchema {
 
 export type StateSchemaKey = keyof StateSchema;
 
+// eslint-disable-next-line no-undef
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>
+
 export type ReducerManager = {
   getReducerMap: () => ReducersMapObject<StateSchema>;
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
+  getMountedReducers: MountedReducers
 }
 
 export type ReduxStoreWithManager = EnhancedStore<StateSchema> & {
